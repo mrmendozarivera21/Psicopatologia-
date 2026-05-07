@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Recurso educativo sobre psicopatología en la era digital para estudiantes de medicina y ciencias de la salud. Universidad de Santander (UDES)." />
+  <title>Psicopatología en la Era Digital | UDES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark:   #0d2d5e;
+      --blue-mid:    #1a4a8a;
+      --blue-light:  #2d7dd2;
+      --blue-pale:   #e8f1fb;
+      --teal:        #0a9396;
+      --teal-light:  #e0f4f5;
+      --amber:       #ee9b00;
+      --amber-light: #fff8e6;
+      --red-soft:    #ae2012;
+      --gray-900:    #1a1a2e;
+      --gray-700:    #374151;
+      --gray-500:    #6b7280;
+      --gray-200:    #e5e7eb;
+      --gray-100:    #f9fafb;
+      --white:       #ffffff;
+      --font-sans:   'Inter', system-ui, sans-serif;
+      --font-serif:  'Merriweather', Georgia, serif;
+      --radius:      10px;
+      --shadow:      0 4px 20px rgba(13,45,94,.10);
+      --shadow-lg:   0 8px 40px rgba(13,45,94,.16);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--gray-700);
+      background: var(--gray-100);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+    img { max-width: 100%; height: auto; border-radius: var(--radius); }
+    a { color: var(--blue-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 99px; }
+
+    /* ─── Top bar ─── */
+    .topbar {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,.75);
+      font-size: .78rem;
+      padding: .45rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: .02em;
+    }
+    .topbar span { display: flex; align-items: center; gap: .4rem; }
+
+    /* ─── Header ─── */
+    header {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--teal) 100%);
+      color: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    header .header-inner { position: relative; max-width: 860px; margin: 0 auto; }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 99px;
+      padding: .3rem 1rem;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.25;
+      margin-bottom: .8rem;
+    }
+    header h1 span { color: #7dd3fc; }
+    header .subtitle {
+      font-size: 1.05rem;
+      opacity: .85;
+      max-width: 640px;
+      margin: 0 auto 1.8rem;
+    }
+    .author-card {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: var(--radius);
+      padding: .65rem 1.2rem;
+      font-size: .9rem;
+    }
+    .author-card .av {
+      width: 40px; height: 40px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .author-card strong { display: block; font-weight: 600; }
+    .author-card small { opacity: .75; font-size: .8rem; }
+
+    /* ─── Sticky Nav ─── */
+    nav.sticky {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      gap: .1rem;
+      padding: 0 1rem;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    nav a.nav-link {
+      white-space: nowrap;
+      color: var(--gray-700);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: .9rem .75rem;
+      border-bottom: 3px solid transparent;
+      transition: all .2s;
+      display: flex; align-items: center; gap: .35rem;
+    }
+    nav a.nav-link:hover, nav a.nav-link.active {
+      color: var(--blue-mid);
+      border-bottom-color: var(--blue-mid);
+      text-decoration: none;
+    }
+
+    /* ─── Layout ─── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+    main { min-width: 0; }
+
+    /* ─── Section cards ─── */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.4rem 2.2rem;
+      margin-bottom: 2rem;
+      scroll-margin-top: 70px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      background: var(--blue-pale);
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      margin-bottom: .8rem;
+    }
+    .section-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      color: var(--blue-dark);
+      margin-bottom: .6rem;
+      line-height: 1.3;
+    }
+    .section-card h3 {
+      font-size: 1.08rem;
+      color: var(--blue-mid);
+      margin: 1.6rem 0 .5rem;
+      padding-bottom: .3rem;
+      border-bottom: 2px solid var(--blue-pale);
+    }
+    .section-card h4 {
+      font-size: .95rem;
+      color: var(--blue-dark);
+      margin: 1.2rem 0 .3rem;
+      font-weight: 600;
+    }
+    .section-card p { margin-bottom: .9rem; }
+    .section-card ul, .section-card ol {
+      padding-left: 1.4rem;
+      margin-bottom: .9rem;
+    }
+    .section-card li { margin-bottom: .4rem; }
+    .lead {
+      font-size: 1.08rem;
+      color: var(--gray-500);
+      border-left: 4px solid var(--blue-light);
+      padding-left: 1rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin: 1.8rem 0;
+    }
+
+    /* ─── Tables ─── */
+    .table-wrap { overflow-x: auto; margin: 1.2rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    th {
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: .65rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: .04em;
+    }
+    td { padding: .6rem 1rem; border-bottom: 1px solid var(--gray-200); }
+    tr:nth-child(even) td { background: var(--gray-100); }
+    tr:hover td { background: var(--blue-pale); }
+
+    /* ─── Callout boxes ─── */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+      display: flex;
+      gap: .8rem;
+      align-items: flex-start;
+    }
+    .callout-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+    .callout.info    { background: var(--blue-pale);   border-left: 4px solid var(--blue-light); }
+    .callout.teal    { background: var(--teal-light);  border-left: 4px solid var(--teal); }
+    .callout.amber   { background: var(--amber-light); border-left: 4px solid var(--amber); }
+    .callout.case    { background: #f3f0ff; border-left: 4px solid #7c3aed; }
+    .callout strong  { display: block; margin-bottom: .2rem; font-size: .88rem; }
+    .callout p       { margin: 0; font-size: .9rem; }
+
+    /* ─── Media placeholder ─── */
+    .media-placeholder {
+      border: 2px dashed var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--gray-100);
+      padding: 1.8rem;
+      text-align: center;
+      color: var(--gray-500);
+      margin: 1.4rem 0;
+      font-size: .88rem;
+    }
+    .media-placeholder .mp-icon { font-size: 2rem; margin-bottom: .5rem; display: block; }
+    .media-placeholder strong { display: block; color: var(--gray-700); margin-bottom: .25rem; }
+
+    /* ─── Subsection tabs (Trastornos) ─── */
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+    }
+    .tab-btn {
+      border: 1.5px solid var(--gray-200);
+      background: var(--gray-100);
+      color: var(--gray-700);
+      border-radius: var(--radius);
+      padding: .45rem 1rem;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--blue-mid);
+      color: var(--white);
+      border-color: var(--blue-mid);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ─── Syndrome grid ─── */
+    .syndrome-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .syndrome-card {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .syndrome-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .syndrome-card .sc-num {
+      display: inline-block;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-radius: 50%;
+      width: 28px; height: 28px;
+      font-size: .78rem; font-weight: 700;
+      text-align: center; line-height: 28px;
+      margin-bottom: .6rem;
+    }
+    .syndrome-card h4 { font-size: .95rem; color: var(--blue-dark); margin-bottom: .4rem; }
+    .syndrome-card p { font-size: .88rem; color: var(--gray-500); margin: 0; }
+
+    /* ─── FAQ accordion ─── */
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1rem .2rem;
+      font-size: .97rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      line-height: 1.4;
+    }
+    .faq-q:hover { color: var(--blue-light); }
+    .faq-q .faq-icon {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: transform .25s;
+    }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .3s;
+      font-size: .93rem;
+      color: var(--gray-700);
+      padding: 0 .2rem;
+    }
+    .faq-a.open {
+      max-height: 600px;
+      padding-bottom: 1rem;
+    }
+    .faq-a ul { padding-left: 1.2rem; }
+    .faq-a li { margin-bottom: .3rem; }
+
+    /* ─── References ─── */
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: ref;
+    }
+    .ref-list li {
+      counter-increment: ref;
+      padding: .55rem 0 .55rem 2.2rem;
+      position: relative;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: .88rem;
+      color: var(--gray-700);
+    }
+    .ref-list li::before {
+      content: counter(ref);
+      position: absolute; left: 0;
+      width: 1.6rem; height: 1.6rem;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      border-radius: 4px;
+      font-size: .72rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      top: .6rem;
+    }
+    .ref-list li em { color: var(--gray-500); }
+
+    /* ─── Resources table ─── */
+    .res-tag {
+      display: inline-block;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      border-radius: 4px;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .1rem .45rem;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .sidebar-card h5 {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-500);
+      font-weight: 700;
+      margin-bottom: .9rem;
+    }
+    .toc-link {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .5rem;
+      border-radius: 6px;
+      font-size: .84rem;
+      color: var(--gray-700);
+      transition: background .15s, color .15s;
+      text-decoration: none;
+    }
+    .toc-link:hover { background: var(--blue-pale); color: var(--blue-mid); text-decoration: none; }
+    .toc-link .toc-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gray-200); flex-shrink: 0;
+    }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .78rem; font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      margin-bottom: .5rem;
+    }
+    .badge-pill.green  { background: #dcfce7; color: #15803d; }
+    .badge-pill.blue   { background: var(--blue-pale); color: var(--blue-mid); }
+    .badge-pill.amber  { background: var(--amber-light); color: #b45309; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+      font-size: .88rem;
+    }
+    footer strong { color: var(--white); }
+    footer .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: .8rem; flex-wrap: wrap; }
+    footer a { color: rgba(255,255,255,.6); font-size: .82rem; }
+    footer a:hover { color: var(--white); }
+    footer .disclaimer {
+      max-width: 680px;
+      margin: 1.2rem auto 0;
+      font-size: .78rem;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      padding: .8rem 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* ─── Progress bar ─── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--blue-light));
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+    /* ─── Back to top ─── */
+    #back-top {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      width: 42px; height: 42px;
+      background: var(--blue-mid);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #back-top.visible { opacity: 1; pointer-events: all; }
+
+    /* ─── Utilities ─── */
+    .text-center { text-align: center; }
+    .mt-1 { margin-top: .5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .italic { font-style: italic; }
+    .small  { font-size: .85rem; }
+    .text-muted { color: var(--gray-500); }
+    strong { color: var(--gray-900); }
+  </style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div id="progress-bar"></div>
+
+<!-- Top bar -->
+<div class="topbar">
+  <span>🎓 Recurso Educativo · Universidad de Santander (UDES)</span>
+  <span>Psicopatología · Psiquiatría · Medicina Digital</span>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="header-badge">Salud Mental &amp; Tecnología</div>
+    <h1>Psicopatología en la <span>Era Digital</span></h1>
+    <p class="subtitle">Una aproximación clínica y académica para estudiantes de medicina y ciencias de la salud</p>
+    <div class="author-card">
+      <div class="av">AM</div>
+      <div>
+        <strong>Andrés Mauricio Ardila Mendoza</strong>
+        <small>Estudiante de Medicina · Universidad de Santander (UDES)</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Sticky Nav -->
+<nav class="sticky" role="navigation" aria-label="Secciones principales">
+  <div class="nav-inner">
+    <a href="#inicio"     class="nav-link">🏠 Inicio</a>
+    <a href="#adicciones" class="nav-link">📱 Adicciones</a>
+    <a href="#trastornos" class="nav-link">🧩 Trastornos</a>
+    <a href="#sindromes"  class="nav-link">🔬 Síndromes</a>
+    <a href="#recursos"   class="nav-link">🎬 Recursos</a>
+    <a href="#faq"        class="nav-link">❓ FAQ</a>
+    <a href="#referencias" class="nav-link">📚 Referencias</a>
+  </div>
+</nav>
+
+<!-- Main layout -->
+<div class="page-wrap">
+  <main>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 1, PÁGINA PRINCIPAL
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="inicio">
+      <div class="section-label">📌 Sección 1</div>
+      <h2>Psicopatología en la Era Digital: Comprendiendo la Mente en un Mundo Conectado</h2>
+
+      <p class="lead">La explosión tecnológica de las últimas décadas ha transformado radicalmente la forma en que los seres humanos se relacionan, aprenden, trabajan y perciben la realidad.</p>
+
+      <p>Los dispositivos digitales, las redes sociales, la inteligencia artificial y el ecosistema de la hiperconectividad no son fenómenos neutros: ejercen una influencia profunda y documentada sobre la salud mental de individuos en todas las etapas de la vida.</p>
+
+      <p>La <strong>psicopatología</strong>, rama de la psiquiatría y la psicología que estudia las alteraciones de los procesos mentales, enfrenta hoy un desafío sin precedentes: comprender, clasificar y tratar trastornos que nacen, se amplifican o se modifican en el entorno digital.</p>
+
+      <div class="media-placeholder">
+        <span class="mp-icon">🖼️</span>
+        <strong>Imagen sugerida</strong>
+        Ilustración conceptual: cerebro humano integrado con redes neurales digitales.<br>
+        <span class="small text-muted">Paleta azul-gris · Estilo infográfico académico · Fuente: Freepik / Canva Pro</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>¿Por qué es clínica y académicamente relevante?</h3>
+      <p>El impacto del entorno digital sobre la salud mental ya no es una hipótesis especulativa. Organismos como la <strong>Organización Mundial de la Salud (OMS)</strong>, la <strong>Asociación Americana de Psiquiatría (APA)</strong> y el <strong>DSM-5-TR</strong> han comenzado a incorporar o discutir activamente diagnósticos vinculados al uso problemático de tecnología.</p>
+
+      <p>Desde la perspectiva clínica, los profesionales de la salud se enfrentan a:</p>
+      <ul>
+        <li>Pacientes que presentan síntomas ansiosos o depresivos directamente mediados por el uso de redes sociales.</li>
+        <li>Adolescentes con trastornos del sueño asociados a la exposición nocturna a pantallas.</li>
+        <li>Adultos con deterioro cognitivo funcional secundario al uso compulsivo de dispositivos.</li>
+        <li>Fenómenos emergentes como el <em>FOMO</em>, el <em>phubbing</em> o la <em>nomofobia</em>, que aún carecen de consenso diagnóstico pero generan consultas reales.</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon">💡</span>
+        <div>
+          <strong>Nota académica</strong>
+          <p>La formación médica actual exige que el estudiante comprenda estos fenómenos con rigor científico, pensamiento crítico y sensibilidad clínica.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>La psicopatología y el entorno digital: una relación bidireccional</h3>
+      <p>La relación entre psicopatología y entorno digital no es unidireccional. No se trata simplemente de que "la tecnología enferma": la realidad es más compleja.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Dirección</th><th>Descripción</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Digital → Psicopatología</strong></td>
+              <td>El uso excesivo o disfuncional de tecnología puede desencadenar o exacerbar trastornos mentales (ansiedad, depresión, insomnio, deterioro cognitivo).</td>
+            </tr>
+            <tr>
+              <td><strong>Psicopatología → Digital</strong></td>
+              <td>Personas con trastornos previos (TDAH, ansiedad social, depresión) pueden ser más vulnerables al uso problemático de tecnología o usarlo como mecanismo de evasión.</td>
+            </tr>
+            <tr>
+              <td><strong>Bidireccional</strong></td>
+              <td>En muchos casos, existe un ciclo de retroalimentación: el malestar emocional impulsa el uso digital, y el uso digital amplifica el malestar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout teal">
+        <span class="callout-icon">🔁</span>
+        <div>
+          <strong>Abordaje multidisciplinario</strong>
+          <p>Esta complejidad exige la colaboración de psiquiatría, neurociencia, medicina interna, trabajo social y salud pública.</p>
+        </div>
+      </div>
+
+      <div class="media-placeholder">
+        <span class="mp-icon">🎬</span>
+        <strong>Video sugerido, Introducción</strong>
+        Buscar en YouTube: <em>"Technology and Mental Health – WHO"</em> | <em>"Salud mental y tecnología – OPS"</em><br>
+        <span class="small text-muted">Duración recomendada: 3–8 min · Insertar como iframe debajo de esta sección</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 2, ADICCIONES DIGITALES
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="adicciones">
+      <div class="section-label">📱 Sección 2</div>
+      <h2>Adicciones Digitales Específicas</h2>
+      <p class="lead">El uso de tecnología y medios digitales influye profundamente en la salud mental a través de mecanismos neurobiológicos bien documentados.</p>
+
+      <h3>Definición y marco conceptual</h3>
+      <p>El término <strong>adicción digital</strong> hace referencia a un patrón de uso compulsivo, persistente y disfuncional de dispositivos o plataformas digitales, que interfiere significativamente con el funcionamiento cotidiano del individuo en sus esferas social, académica, laboral o afectiva.</p>
+
+      <p>Aunque el <strong>DSM-5</strong> solo reconoce oficialmente el <strong>Trastorno por Juego en Internet (Internet Gaming Disorder)</strong> como condición que requiere mayor investigación, la evidencia acumulada apunta a que múltiples formas de uso problemático de tecnología comparten características neurobiológicas y conductuales con los trastornos adictivos clásicos:</p>
+      <ul>
+        <li>Activación del sistema dopaminérgico de recompensa.</li>
+        <li>Tolerancia progresiva (necesidad de mayor exposición para obtener el mismo efecto).</li>
+        <li>Síndrome de abstinencia ante la interrupción del acceso.</li>
+        <li>Pérdida de control sobre el comportamiento.</li>
+        <li>Continuación del uso pese a consecuencias negativas evidentes.</li>
+      </ul>
+
+      <div class="divider"></div>
+
+      <h3>Tipos de adicción digital relevantes en la clínica actual</h3>
+
+      <h4>1. Adicción a redes sociales</h4>
+      <p>El diseño algorítmico de plataformas como Instagram, TikTok o X (antes Twitter) está deliberadamente construido para maximizar el tiempo de permanencia del usuario. Los mecanismos de refuerzo variable (notificaciones impredecibles, "likes", comentarios) replican el patrón conductual de las máquinas tragamonedas.</p>
+      <div class="callout case">
+        <span class="callout-icon">🩺</span>
+        <div>
+          <strong>Ejemplo clínico</strong>
+          <p>Estudiante universitaria de 20 años que revisa su teléfono más de 80 veces al día, experimenta ansiedad intensa si no puede acceder a sus redes durante más de 30 minutos, y reporta sensación de vacío afectivo cuando una publicación recibe menos interacciones de las esperadas.</p>
+        </div>
+      </div>
+
+      <h4>2. Trastorno por Juego en Internet (<em>Internet Gaming Disorder</em>)</h4>
+      <p>Reconocido en el DSM-5-TR y en la CIE-11 de la OMS bajo el nombre de <strong>"Gaming Disorder"</strong>, se caracteriza por una preocupación dominante por los videojuegos, pérdida de control sobre el juego, y continuación del mismo pese al deterioro funcional.</p>
+      <div class="callout case">
+        <span class="callout-icon">🩺</span>
+        <div>
+          <strong>Ejemplo clínico</strong>
+          <p>Varón de 17 años que abandona progresivamente actividades académicas y sociales para dedicar 10–14 horas diarias a videojuegos en línea. Presenta irritabilidad extrema cuando se le interrumpe y niega tener un problema.</p>
+        </div>
+      </div>
+
+      <h4>3. Adicción al contenido audiovisual (<em>Binge-watching</em>)</h4>
+      <p>El consumo compulsivo y continuo de series, videos cortos (reels, shorts) o contenido de streaming puede generar patrones similares a los de otras adicciones conductuales.</p>
+      <div class="callout case">
+        <span class="callout-icon">🩺</span>
+        <div>
+          <strong>Ejemplo clínico</strong>
+          <p>Profesional de 35 años que refiere incapacidad para detenerse al ver series en Netflix, permanece despierto hasta las 3–4 a.m. con regularidad, y reporta culpa y baja productividad al día siguiente, sin poder modificar el comportamiento.</p>
+        </div>
+      </div>
+
+      <h4>4. Uso compulsivo de pornografía en línea</h4>
+      <p>El acceso ilimitado, gratuito y anónimo a contenido pornográfico en internet ha generado nuevos patrones de consumo con implicaciones en la conducta sexual, la intimidad relacional y la autoimagen.</p>
+
+      <h4>5. Cibercompras compulsivas (<em>Online shopping disorder</em>)</h4>
+      <p>El diseño de plataformas de comercio electrónico facilita la impulsividad mediante estrategias como el "compra en 1 clic", los temporizadores de oferta y las notificaciones personalizadas.</p>
+
+      <div class="media-placeholder">
+        <span class="mp-icon">🖼️</span>
+        <strong>Imagen sugerida</strong>
+        Infografía con los 5 tipos de adicción digital, íconos representativos.<br>
+        <span class="small text-muted">Diseñar en Canva o Piktochart · Fondo blanco · Tipografía sans-serif</span>
+      </div>
+      <div class="media-placeholder">
+        <span class="mp-icon">🎬</span>
+        <strong>Video sugerido</strong>
+        Buscar: <em>"Adicción a redes sociales – neurociencia"</em> | <em>"Dopamine and Social Media – Documentary"</em>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 3, TRASTORNOS (A–E)
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="trastornos">
+      <div class="section-label">🧩 Sección 3</div>
+      <h2>Trastornos Psicopatológicos Asociados a la Era Digital</h2>
+      <p class="lead">En cada subsección se define el trastorno, se describe su relación con la era digital y se aportan ejemplos clínicos concretos.</p>
+
+      <!-- Tabs navigation -->
+      <div class="tabs-nav" role="tablist">
+        <button class="tab-btn active" onclick="showTab('ta', this)" role="tab">A · Ansiedad</button>
+        <button class="tab-btn" onclick="showTab('tb', this)" role="tab">B · Estado de ánimo</button>
+        <button class="tab-btn" onclick="showTab('tc', this)" role="tab">C · Cognitivos</button>
+        <button class="tab-btn" onclick="showTab('td', this)" role="tab">D · Sueño</button>
+        <button class="tab-btn" onclick="showTab('te', this)" role="tab">E · Sociales y conducta</button>
+      </div>
+
+      <!-- TAB A -->
+      <div class="tab-content active" id="tab-ta">
+        <h3>A. Trastornos de Ansiedad Asociados</h3>
+        <p>Los <strong>trastornos de ansiedad</strong> constituyen el grupo de trastornos mentales más prevalente a nivel mundial. La interacción con el entorno digital actúa como un potenciador de la carga ansiosa en individuos vulnerables, al tiempo que genera nuevas formas de presentación sintomática.</p>
+
+        <h4>Relación con la era digital</h4>
+        <ul>
+          <li><strong>Hiperconectividad e hipervigilancia:</strong> La disponibilidad permanente genera una expectativa implícita de respuesta inmediata. No contestar un mensaje puede interpretarse como una amenaza relacional.</li>
+          <li><strong>Sobrecarga informativa (<em>information overload</em>):</strong> El bombardeo continuo de noticias y notificaciones activa el sistema nervioso autónomo de forma sostenida.</li>
+          <li><strong>Comparación social algorítmica:</strong> Los algoritmos amplifican contenido aspiracional que distorsiona la percepción de normalidad y fomenta la autocomparación negativa.</li>
+        </ul>
+
+        <h4>Cuadros específicos</h4>
+        <div class="callout info">
+          <span class="callout-icon">😰</span>
+          <div>
+            <strong>FOMO (Fear of Missing Out, Miedo a perderse algo)</strong>
+            <p>Ansiedad persistente ante la posibilidad de estar ausente de experiencias sociales documentadas en redes sociales. Se asocia a revisión compulsiva del teléfono y dificultad para desconectarse.</p>
+          </div>
+        </div>
+        <div class="callout info">
+          <span class="callout-icon">📵</span>
+          <div>
+            <strong>Nomofobia (<em>No-Mobile-Phone Phobia</em>)</strong>
+            <p>Miedo irracional a quedarse sin teléfono móvil o sin señal. Puede generar taquicardia, sudoración y pensamiento catastrófico ante la pérdida o descarga del dispositivo.</p>
+          </div>
+        </div>
+        <div class="callout info">
+          <span class="callout-icon">🔔</span>
+          <div>
+            <strong>Ansiedad por notificaciones</strong>
+            <p>Estado de alerta anticipatoria constante ante la posibilidad de recibir o haber perdido notificaciones. Produce dificultad para sostener la atención en tareas que requieren concentración prolongada.</p>
+          </div>
+        </div>
+        <div class="callout info">
+          <span class="callout-icon">👁️</span>
+          <div>
+            <strong>Ciber-ansiedad social</strong>
+            <p>Temor excesivo a ser juzgado, ridiculizado o expuesto en entornos digitales. Puede coexistir o amplificar el trastorno de ansiedad social clásico.</p>
+          </div>
+        </div>
+        <div class="media-placeholder">
+          <span class="mp-icon">🖼️</span>
+          <strong>Imagen sugerida</strong>
+          Persona mirando el teléfono con expresión de angustia, rodeada de íconos de notificaciones.<br>
+          <span class="small text-muted">Banco: Unsplash / Pexels (licencia libre)</span>
+        </div>
+      </div>
+
+      <!-- TAB B -->
+      <div class="tab-content" id="tab-tb">
+        <h3>B. Trastornos del Estado de Ánimo</h3>
+        <p>El <strong>trastorno depresivo mayor</strong> y los <strong>trastornos bipolares</strong> conforman el espectro de los trastornos del estado de ánimo. La evidencia creciente señala al entorno digital como un modulador significativo de estos cuadros.</p>
+
+        <h4>Relación con la era digital</h4>
+        <ul>
+          <li><strong>Redes sociales y depresión:</strong> Múltiples estudios longitudinales (Twenge et al., 2018; Haidt &amp; Allen, 2020) documentan correlaciones entre tiempo en redes y síntomas depresivos, especialmente en adolescentes y mujeres jóvenes.</li>
+          <li><strong>Cyberbullying:</strong> El acoso digital puede precipitar episodios depresivos severos, ideación suicida y conducta autolesiva.</li>
+          <li><strong>Comparación social y autoestima:</strong> La exposición continua a representaciones idealizadas de la vida ajena deteriora la autoestima y favorece la rumiación.</li>
+        </ul>
+
+        <h4>Ejemplos clínicos</h4>
+        <div class="callout case">
+          <span class="callout-icon">🩺</span>
+          <div>
+            <strong>Caso 1</strong>
+            <p>Adolescente de 15 años con humor depresivo y anhedonia progresiva correlacionada temporalmente con el inicio del uso intensivo de Instagram. Reporta sentirse "insuficiente" comparada con influencers.</p>
+          </div>
+        </div>
+        <div class="callout case">
+          <span class="callout-icon">🩺</span>
+          <div>
+            <strong>Caso 2</strong>
+            <p>Adulto de 28 años con episodio depresivo desencadenado tras ser víctima de una campaña de acoso coordinado en X (Twitter), que incluía difusión de información privada (<em>doxing</em>).</p>
+          </div>
+        </div>
+
+        <div class="callout amber">
+          <span class="callout-icon">🔗</span>
+          <div>
+            <strong>La paradoja de la conexión digital</strong>
+            <p>Paradójicamente, aunque las plataformas digitales prometen conexión social, su uso intensivo puede generar un profundo aislamiento afectivo. El psicólogo Jonathan Haidt denomina este fenómeno <strong>"soledad conectada"</strong>: el individuo está digitalmente activo pero emocionalmente desvinculado.</p>
+          </div>
+        </div>
+
+        <div class="media-placeholder">
+          <span class="mp-icon">🎬</span>
+          <strong>Video sugerido</strong>
+          Buscar: <em>"Jonathan Haidt – Social Media and Teen Mental Health"</em> | <em>"Redes sociales y depresión adolescente"</em>
+        </div>
+      </div>
+
+      <!-- TAB C -->
+      <div class="tab-content" id="tab-tc">
+        <h3>C. Trastornos Cognitivos</h3>
+        <p>Los <strong>trastornos cognitivos</strong> comprenden alteraciones en funciones como la atención, la memoria, el aprendizaje, el razonamiento y la función ejecutiva. La era digital ha generado cambios en el funcionamiento cognitivo con consecuencias clínicas y académicas evidentes.</p>
+
+        <h4>Deterioro atencional digital</h4>
+        <p>La exposición continua a contenidos breves, estimulantes y de alta velocidad (TikTok, Reels, YouTube Shorts) reconduce los hábitos atencionales hacia la búsqueda de novedad constante, dificultando la concentración sostenida requerida para el estudio o la lectura profunda.</p>
+
+        <h4>El efecto Google (<em>Google Effect</em>)</h4>
+        <p>Investigaciones de Sparrow et al. (2011) demostraron que cuando las personas saben que pueden buscar información en internet, disminuye su esfuerzo por recordarla. Este fenómeno, denominado <strong>"amnesia digital"</strong>, no implica deterioro patológico, pero sí un cambio en los procesos de codificación mnemónica.</p>
+
+        <h4>Multitarea digital</h4>
+        <p>Contrariamente a la creencia popular, la multitarea cognitiva no incrementa la productividad: la deteriora. El cambio constante entre tareas (<em>task-switching</em>) consume recursos del lóbulo frontal y aumenta el tiempo total necesario para completar cada actividad.</p>
+
+        <h4>TDAH y entorno digital</h4>
+        <p>Los pacientes con <strong>Trastorno por Déficit de Atención e Hiperactividad (TDAH)</strong> son especialmente vulnerables al uso problemático de tecnología. El entorno digital puede exacerbar la distracción e impulsividad a la vez que funciona como reforzador positivo inmediato.</p>
+
+        <div class="callout case">
+          <span class="callout-icon">🩺</span>
+          <div>
+            <strong>Ejemplo académico</strong>
+            <p>Estudiante de medicina en quinto semestre que reporta dificultad para leer artículos científicos de más de 5 páginas sin interrumpirse para revisar el teléfono. Refiere: <em>"Antes podía concentrarme horas; ahora no aguanto 20 minutos."</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB D -->
+      <div class="tab-content" id="tab-td">
+        <h3>D. Trastornos del Sueño</h3>
+        <p>Los <strong>trastornos del sueño</strong> relacionados con el entorno digital representan uno de los problemas de salud pública más frecuentes y subestimados de la era contemporánea. La privación crónica de sueño tiene consecuencias sobre la salud cardiovascular, metabólica, inmunológica y mental.</p>
+
+        <h4>Luz azul y supresión de melatonina</h4>
+        <p>Las pantallas emiten luz en el espectro azul (450–490 nm), que inhibe la secreción de melatonina por la glándula pineal. Esto retrasa el inicio del sueño y reduce su calidad, especialmente cuando la exposición ocurre en las 2 horas previas a dormir.</p>
+
+        <h4>Arousal cognitivo nocturno</h4>
+        <p>El contenido digital, especialmente noticias, redes sociales o videojuegos, genera activación cognitiva y emocional que dificulta la transición al sueño. El cerebro permanece en estado de alerta cuando debería iniciar el proceso de desconexión.</p>
+
+        <h4>Cuadros clínicos asociados</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Trastorno</th><th>Mecanismo digital principal</th></tr></thead>
+            <tbody>
+              <tr><td>Insomnio de inicio</td><td>Estimulación cognitiva/emocional previa al sueño</td></tr>
+              <tr><td>Retraso de fase del sueño</td><td>Alteración circadiana por luz azul</td></tr>
+              <tr><td>Sueño no reparador</td><td>Fragmentación por notificaciones nocturnas</td></tr>
+              <tr><td>Hipersomnia diurna</td><td>Compensación por deuda de sueño acumulada</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout case">
+          <span class="callout-icon">🩺</span>
+          <div>
+            <strong>Ejemplo clínico</strong>
+            <p>Residente de primer año de medicina que utiliza el teléfono para "relajarse" 1–2 horas antes de dormir. Reporta dificultad para conciliar el sueño antes de la 1 a.m., somnolencia diurna intensa y rendimiento académico deteriorado.</p>
+          </div>
+        </div>
+        <div class="media-placeholder">
+          <span class="mp-icon">🎬</span>
+          <strong>Video sugerido</strong>
+          Buscar: <em>"Blue Light and Sleep – Matthew Walker"</em> | <em>"Luz azul y melatonina – explicación médica"</em>
+        </div>
+      </div>
+
+      <!-- TAB E -->
+      <div class="tab-content" id="tab-te">
+        <h3>E. Trastornos Sociales y de Conducta</h3>
+        <p>Este grupo abarca alteraciones en la conducta interpersonal, la identidad social y la regulación emocional que tienen en el entorno digital tanto un origen como un escenario de expresión.</p>
+
+        <h4>Trastorno de Ansiedad Social amplificado digitalmente</h4>
+        <p>Las personas con trastorno de ansiedad social frecuentemente migran sus interacciones al ámbito digital como estrategia de evitación. Si bien esto puede aliviar la ansiedad a corto plazo, refuerza el patrón de evitación y agrava el trastorno en el mediano y largo plazo.</p>
+
+        <h4>Phubbing (<em>Phone snubbing</em>)</h4>
+        <p>Conducta de ignorar a personas presentes en el entorno físico para atender el teléfono móvil. Tiene consecuencias documentadas en la calidad de las relaciones interpersonales, la satisfacción de pareja y el clima laboral.</p>
+
+        <h4>Identidad digital fragmentada</h4>
+        <p>Las redes sociales incentivan la construcción de identidades idealizadas que divergen significativamente del <em>self</em> real. Esta brecha entre la persona real y la persona digital puede generar disonancia cognitiva, vacío existencial y trastornos de la identidad en poblaciones jóvenes.</p>
+
+        <h4>Ciberbullying y conducta agresiva en línea</h4>
+        <p>La desinhibición que facilita el anonimato digital (<em>Online Disinhibition Effect</em>, Suler 2004) favorece conductas agresivas, de acoso o humillación pública que no se reproducirían en el ámbito presencial. El ciberbullying tiene correlatos clínicos graves: depresión, TEPT e ideación suicida.</p>
+
+        <div class="callout case">
+          <span class="callout-icon">🩺</span>
+          <div>
+            <strong>Ejemplo clínico</strong>
+            <p>Joven de 22 años que en entornos presenciales manifiesta marcada ansiedad social, pero en redes sociales proyecta una imagen extrovertida y segura. La brecha entre ambas identidades genera confusión sobre su propia identidad y episodios de despersonalización.</p>
+          </div>
+        </div>
+        <div class="media-placeholder">
+          <span class="mp-icon">🖼️</span>
+          <strong>Imagen sugerida</strong>
+          Díptico: misma persona en entorno físico (aislada) vs. su perfil digital (brillante y popular).<br>
+          <span class="small text-muted">Concepto "doble identidad digital" · Estilo fotográfico editorial</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 4, SÍNDROMES EMERGENTES
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="sindromes">
+      <div class="section-label">🔬 Sección 4</div>
+      <h2>Síndromes Emergentes en la Era Digital</h2>
+      <p class="lead">Fenómenos y cuadros recientes vinculados al uso digital que, si bien aún no cuentan con categoría diagnóstica formal, constituyen motivo frecuente de consulta e investigación clínica activa.</p>
+
+      <div class="syndrome-grid">
+        <div class="syndrome-card">
+          <div class="sc-num">1</div>
+          <h4>Síndrome de Vibración Fantasma</h4>
+          <p>Percepción de vibraciones del teléfono cuando este no está vibrando. Prevalencia: hasta el <strong>89%</strong> de usuarios (Drouin et al., 2012).</p>
+        </div>
+        <div class="syndrome-card">
+          <div class="sc-num">2</div>
+          <h4>Zoom Fatigue</h4>
+          <p>Agotamiento físico, cognitivo y emocional por uso prolongado de videoconferencias. Formalizado por Jeremy Bailenson (Stanford, 2021).</p>
+        </div>
+        <div class="syndrome-card">
+          <div class="sc-num">3</div>
+          <h4>Doomscrolling</h4>
+          <p>Consumo compulsivo de noticias negativas o alarmantes en redes sociales. Se intensificó durante la pandemia de COVID-19.</p>
+        </div>
+        <div class="syndrome-card">
+          <div class="sc-num">4</div>
+          <h4>Síndrome de la Cabaña Digital</h4>
+          <p>Rechazo progresivo a la socialización presencial en individuos cuya vida social ha migrado completamente al entorno digital.</p>
+        </div>
+        <div class="syndrome-card">
+          <div class="sc-num">5</div>
+          <h4>Tecno-estrés</h4>
+          <p>Estrés crónico derivado de la necesidad de adaptarse a nuevas tecnologías y de la cultura <em>always-on</em>. Reconocido en contextos laborales y académicos.</p>
+        </div>
+        <div class="syndrome-card">
+          <div class="sc-num">6</div>
+          <h4>FOPO</h4>
+          <p><em>Fear of Posting Online</em>. Ansiedad inhibitoria que impide publicar contenido propio por temor al juicio o rechazo digital.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Detalle clínico: Zoom Fatigue</h3>
+      <p>El síndrome de fatiga por videoconferencias fue descrito y formalizado por <strong>Jeremy Bailenson</strong> (Stanford, 2021). Sus mecanismos principales incluyen:</p>
+      <ul>
+        <li>Contacto visual constante y sostenido (no natural en interacciones presenciales).</li>
+        <li>Autovisualización permanente, un espejo en tiempo real que genera autoevaluación constante.</li>
+        <li>Reducción de la comunicación no verbal espontánea.</li>
+        <li>Inmovilidad física sostenida durante las sesiones.</li>
+      </ul>
+
+      <div class="media-placeholder">
+        <span class="mp-icon">🎬</span>
+        <strong>Videos sugeridos</strong>
+        <em>"Zoom Fatigue – Jeremy Bailenson Stanford"</em> | <em>"Doomscrolling – qué es y cómo evitarlo"</em>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 5, RECURSOS MULTIMEDIA
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="recursos">
+      <div class="section-label">🎬 Sección 5</div>
+      <h2>Recursos Multimedia</h2>
+      <p class="lead">Guía de imágenes, videos y herramientas de diseño para enriquecer la experiencia de aprendizaje de esta página educativa.</p>
+
+      <h3>🖼️ Banco de imágenes (uso educativo libre)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Sección</th><th>Descripción</th><th>Fuente</th></tr></thead>
+          <tbody>
+            <tr><td>Página principal</td><td>Cerebro + redes digitales</td><td><span class="res-tag">Freepik</span> <span class="res-tag">Canva Pro</span></td></tr>
+            <tr><td>Adicciones digitales</td><td>Persona con teléfono + notificaciones</td><td><span class="res-tag">Unsplash</span> <span class="res-tag">Pexels</span></td></tr>
+            <tr><td>Ansiedad digital</td><td>Expresión de angustia + notificaciones</td><td><span class="res-tag">Pexels</span></td></tr>
+            <tr><td>Depresión y redes</td><td>Soledad conectada</td><td><span class="res-tag">Unsplash</span></td></tr>
+            <tr><td>Trastornos cognitivos</td><td>Multitarea / cerebro fragmentado</td><td><span class="res-tag">Flaticon</span> <span class="res-tag">Freepik</span></td></tr>
+            <tr><td>Trastornos del sueño</td><td>Luz azul nocturna</td><td><span class="res-tag">Pexels</span></td></tr>
+            <tr><td>Trastornos sociales</td><td>Doble identidad digital</td><td><span class="res-tag">Unsplash</span></td></tr>
+            <tr><td>Síndromes emergentes</td><td>Infografía custom 6 síndromes</td><td><span class="res-tag">Canva</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>🎬 Videos de YouTube sugeridos</h3>
+      <div class="callout info">
+        <span class="callout-icon">💻</span>
+        <div>
+          <strong>Instrucciones de maquetación</strong>
+          <p>Insertar como <code>&lt;iframe&gt;</code> de YouTube. Ejemplo: <code>https://www.youtube.com/embed/[VIDEO_ID]</code></p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Sección</th><th>Término de búsqueda</th><th>Duración ideal</th></tr></thead>
+          <tbody>
+            <tr><td>Introducción</td><td>"Mental health in the digital age WHO"</td><td>3–5 min</td></tr>
+            <tr><td>Adicciones digitales</td><td>"Adicción redes sociales dopamina"</td><td>5–10 min</td></tr>
+            <tr><td>Depresión / Redes</td><td>"Jonathan Haidt social media depression"</td><td>10–15 min</td></tr>
+            <tr><td>Trastornos del sueño</td><td>"Blue light sleep Matthew Walker"</td><td>5–8 min</td></tr>
+            <tr><td>Zoom Fatigue</td><td>"Zoom fatigue Jeremy Bailenson Stanford"</td><td>5–8 min</td></tr>
+            <tr><td>Doomscrolling</td><td>"Doomscrolling what is it"</td><td>3–5 min</td></tr>
+            <tr><td>Resumen general</td><td>"Psicopatología digital resumen"</td><td>10–20 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>📊 Infografías sugeridas</h3>
+      <ul>
+        <li><strong>"El ciclo de la adicción digital"</strong>, dopamina → recompensa → búsqueda → tolerancia</li>
+        <li><strong>"Impacto de la luz azul en el ciclo circadiano"</strong>, esquema cronobiológico</li>
+        <li><strong>"Uso sano vs. uso problemático de tecnología"</strong>, tabla comparativa visual</li>
+        <li><strong>"Los 6 síndromes emergentes de la era digital"</strong>, mosaico iconográfico</li>
+      </ul>
+      <div class="callout teal">
+        <span class="callout-icon">🎨</span>
+        <div>
+          <strong>Herramientas gratuitas de diseño</strong>
+          <p>Canva, Piktochart, Infogram, Visme, todas ofrecen plantillas educativas y médicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECCIÓN 6, FAQ
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="faq">
+      <div class="section-label">❓ Sección 6</div>
+      <h2>Preguntas Frecuentes</h2>
+      <p class="lead">Respuestas académicas a las dudas más comunes sobre psicopatología y entorno digital.</p>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿El uso de redes sociales causa depresión?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No existe una causalidad directa y universal establecida, pero sí una correlación bien documentada. El uso intensivo de redes sociales, especialmente el basado en comparación social pasiva (scrollear sin interactuar), se asocia a mayor prevalencia de síntomas depresivos, en particular en adolescentes y mujeres jóvenes. La relación es bidireccional: personas con vulnerabilidad depresiva previa pueden ser más propensas a usar redes sociales de forma disfuncional, lo cual a su vez agrava sus síntomas.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿A partir de cuántas horas de pantalla se considera uso problemático?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No existe un umbral universal validado. El criterio diagnóstico más relevante no es el tiempo en sí, sino el <strong>impacto funcional</strong>: ¿el uso de pantallas interfiere con el sueño, el rendimiento académico, las relaciones personales o la salud física? La Academia Americana de Pediatría sugiere no más de 2 horas de pantalla recreativa diaria para niños y adolescentes, pero en adultos la valoración debe ser individualizada y contextual.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿La nomofobia es un trastorno reconocido oficialmente?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Actualmente, la nomofobia no figura como categoría diagnóstica independiente en el DSM-5-TR ni en la CIE-11. Sin embargo, puede codificarse dentro de los trastornos de ansiedad específica o como manifestación de un uso problemático de internet. Su prevalencia documentada y su relevancia clínica la han convertido en un objeto de investigación activo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Los videojuegos siempre son perjudiciales para la salud mental?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No. El juego moderado tiene efectos cognitivos documentados positivos: mejora la coordinación visuomotora, el razonamiento espacial, la capacidad de resolución de problemas y las habilidades de cooperación. El problema surge cuando el juego se vuelve compulsivo, desplaza otras actividades vitales y genera deterioro funcional. La distinción clave es entre <strong>uso recreativo saludable</strong> y <strong>trastorno por juego en internet</strong>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿El teletrabajo y las clases virtuales afectan la salud mental?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sí. La pandemia de COVID-19 aceleró masivamente la adopción del trabajo y la educación virtual, evidenciando riesgos como: fatiga por videoconferencias, desdibujamiento de los límites entre vida laboral y personal, aislamiento social, sedentarismo y dificultades en la regulación del sueño. Para algunas personas con ansiedad social o trastornos de movilidad, la virtualidad también representó un entorno más accesible. El impacto es heterogéneo y dependiente del perfil individual.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cómo puedo evaluar si un paciente tiene uso problemático de tecnología?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Existen herramientas validadas para tamizaje clínico:</p>
+          <ul>
+            <li><strong>CIUS</strong>, Compulsive Internet Use Scale</li>
+            <li><strong>IAT</strong>, Internet Addiction Test (Kimberly Young)</li>
+            <li><strong>IGDS-SF9</strong>, Internet Gaming Disorder Scale – Short Form</li>
+            <li><strong>BSMAS</strong>, Bergen Social Media Addiction Scale</li>
+          </ul>
+          <p>Ninguna reemplaza la entrevista clínica estructurada. El criterio fundamental sigue siendo el <strong>deterioro funcional significativo</strong> en las áreas académica, laboral, social o de salud.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cuál es el tratamiento para las adicciones digitales?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>El abordaje terapéutico es multimodal:</p>
+          <ul>
+            <li><strong>Psicoterapia:</strong> La TCC es la más respaldada por evidencia. La Terapia de Aceptación y Compromiso (ACT) también muestra resultados prometedores.</li>
+            <li><strong>Intervenciones conductuales:</strong> Restricción programada del tiempo en pantalla, "detox digital", zonas y horarios libres de dispositivos.</li>
+            <li><strong>Psicoeducación:</strong> Para el paciente y su entorno familiar o social.</li>
+            <li><strong>Farmacoterapia:</strong> No existe un fármaco específico aprobado. Se puede considerar tratamiento de comorbilidades (antidepresivos, ansiolíticos, tratamiento del TDAH).</li>
+            <li><strong>Estilo de vida:</strong> Actividad física, higiene del sueño, cultivo de relaciones presenciales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Por qué los adolescentes son más vulnerables a estos trastornos?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Desde la neurobiología, el <strong>córtex prefrontal</strong>, responsable del control de impulsos, la planificación y la regulación emocional, no madura completamente hasta los 25 años aproximadamente. Durante la adolescencia, el sistema límbico (emociones, recompensa) predomina sobre el control ejecutivo. Esto hace que los adolescentes sean especialmente sensibles al refuerzo dopaminérgico de las redes sociales y los videojuegos, y menos capaces de regular autónomamente su uso.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         REFERENCIAS
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="referencias">
+      <div class="section-label">📚 Referencias</div>
+      <h2>Referencias Bibliográficas</h2>
+      <ul class="ref-list">
+        <li>American Psychiatric Association. (2022). <em>Diagnostic and Statistical Manual of Mental Disorders (5th ed., text revision)</em>. APA Publishing.</li>
+        <li>World Health Organization. (2019). <em>ICD-11: International Classification of Diseases, 11th Revision</em>. WHO.</li>
+        <li>Haidt, J., &amp; Allen, N. (2020). Scrutinizing the effects of digital technology on mental health. <em>Nature, 578</em>, 226–227.</li>
+        <li>Twenge, J. M., et al. (2018). Increases in depressive symptoms, suicide-related outcomes, and suicide rates among US adolescents after 2010 and links to increased new media screen time. <em>Clinical Psychological Science, 6</em>(1), 3–17.</li>
+        <li>Bailenson, J. N. (2021). Nonverbal overload: A theoretical argument for the causes of Zoom fatigue. <em>Technology, Mind, and Behavior, 2</em>(1).</li>
+        <li>Sparrow, B., Liu, J., &amp; Wegner, D. M. (2011). Google effects on memory: Cognitive consequences of having information at our fingertips. <em>Science, 333</em>(6043), 776–778.</li>
+        <li>Suler, J. (2004). The online disinhibition effect. <em>CyberPsychology &amp; Behavior, 7</em>(3), 321–326.</li>
+        <li>Drouin, M., Kaiser, D. H., &amp; Miller, D. A. (2012). Phantom vibrations among undergraduates: Prevalence and associated psychological characteristics. <em>Computers in Human Behavior, 28</em>(4), 1490–1496.</li>
+        <li>Kuss, D. J., &amp; Griffiths, M. D. (2017). Social networking sites and addiction: Ten lessons learned. <em>International Journal of Environmental Research and Public Health, 14</em>(3), 311.</li>
+      </ul>
+
+      <div class="callout amber mt-2">
+        <span class="callout-icon">⚠️</span>
+        <div>
+          <strong>Aviso legal</strong>
+          <p>Este recurso tiene fines exclusivamente educativos y académicos. No reemplaza la evaluación clínica profesional. Si usted o alguien de su entorno presenta síntomas relacionados con los temas aquí descritos, se recomienda consultar con un profesional de salud mental certificado.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h5>Tabla de contenidos</h5>
+      <a href="#inicio"      class="toc-link"><span class="toc-dot"></span> Página principal</a>
+      <a href="#adicciones"  class="toc-link"><span class="toc-dot"></span> Adicciones digitales</a>
+      <a href="#trastornos"  class="toc-link"><span class="toc-dot"></span> Trastornos A–E</a>
+      <a href="#sindromes"   class="toc-link"><span class="toc-dot"></span> Síndromes emergentes</a>
+      <a href="#recursos"    class="toc-link"><span class="toc-dot"></span> Recursos multimedia</a>
+      <a href="#faq"         class="toc-link"><span class="toc-dot"></span> Preguntas frecuentes</a>
+      <a href="#referencias" class="toc-link"><span class="toc-dot"></span> Referencias</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h5>Autor</h5>
+      <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;">
+        <div style="width:46px;height:46px;background:var(--blue-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1rem;flex-shrink:0;">AM</div>
+        <div>
+          <div style="font-weight:600;font-size:.9rem;color:var(--blue-dark);">Andrés M. Ardila M.</div>
+          <div style="font-size:.78rem;color:var(--gray-500);">Estudiante de Medicina</div>
+        </div>
+      </div>
+      <span class="badge-pill blue">🏛️ UDES</span><br>
+      <span class="badge-pill green">✅ Recurso educativo</span><br>
+      <span class="badge-pill amber">📅 2025</span>
+    </div>
+
+    <div class="sidebar-card">
+      <h5>Escalas clínicas citadas</h5>
+      <ul style="font-size:.83rem;padding-left:1.1rem;color:var(--gray-700);">
+        <li style="margin-bottom:.3rem;">CIUS</li>
+        <li style="margin-bottom:.3rem;">IAT (K. Young)</li>
+        <li style="margin-bottom:.3rem;">IGDS-SF9</li>
+        <li>BSMAS</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Back to top -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver al inicio">↑</button>
+
+<!-- Footer -->
+<footer>
+  <strong>Psicopatología en la Era Digital</strong>, Recurso educativo web
+  <div class="footer-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#adicciones">Adicciones</a>
+    <a href="#trastornos">Trastornos</a>
+    <a href="#sindromes">Síndromes</a>
+    <a href="#faq">FAQ</a>
+    <a href="#referencias">Referencias</a>
+  </div>
+  <div class="disclaimer">
+    Creado por <strong>Andrés Mauricio Ardila Mendoza</strong> · Estudiante de Medicina, Universidad de Santander (UDES). Este recurso tiene fines exclusivamente educativos y académicos. No reemplaza la evaluación clínica profesional.
+  </div>
+</footer>
+
+<script>
+  /* Reading progress bar */
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    const btn = document.getElementById('back-top');
+    btn.classList.toggle('visible', doc.scrollTop > 400);
+  });
+
+  /* Active nav highlight */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a.nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+
+  /* Tabs */
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* FAQ accordion */
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
